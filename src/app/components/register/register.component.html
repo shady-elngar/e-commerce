@@ -1,0 +1,71 @@
+<h2 class="text-center text-main mt-3"> Register Now</h2>
+<div class="w-75 mx-auto">
+    <form class="py-3" [formGroup]="registerForm" (ngSubmit)="handelRegister(registerForm)">
+        <div *ngIf="errMsg.length>0" class="alert alert-danger">{{errMsg}}</div>
+        <div class="mb-2">
+            <label for="nameInput">Full Name :</label>
+            <input formControlName="name" type="text" class="form-control" id="nameInput">
+            <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched">
+                <p *ngIf="registerForm.get('name')?.getError('required')" class="alert alert-danger p-2 mt-2"> Name is required</p>
+                <p *ngIf="registerForm.get('name')?.getError('minLength')" class="alert alert-danger p-2 mt-2">minLength is 3 charct</p>
+                <p *ngIf="registerForm.get('name')?.getError('maxLength')" class="alert alert-danger p-2 mt-2">maxLength is 15 charct</p>
+
+            </div>
+        </div>
+        <div class="mb-2">
+            <label for="emailInput">Email :</label>
+            <input formControlName="email" type="email" class="form-control" id="emailInput">
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                <p *ngIf="registerForm.get('email')?.getError('required')" class="alert alert-danger p-2 mt-2"> email required</p>
+                <p *ngIf="registerForm.get('email')?.getError('email')" class="alert alert-danger p-2 mt-2">Valid email</p>
+
+            </div>
+        </div>
+        <label for="passwordInput">Password :</label>
+        <div class=" input-group mb-2">
+
+            <input formControlName="password" [type]=" isHidden ? 'text': 'password'" class="form-control" id="passwordInput">
+
+            <span class="input-group-text cursor">
+                    
+                <i (click)="showPassword()" [ngClass]="{
+                    'fa-regular fa-eye': isHidden,
+                    'fa-solid fa-eye-slash': !isHidden
+                  }"></i></span>
+
+        </div>
+        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+            <p *ngIf="registerForm.get('password')?.getError('required')" class="alert alert-danger p-2 mt-2"> password required</p>
+            <p *ngIf="registerForm.get('password')?.getError('pattern')" class="alert alert-danger p-2 mt-2">Must start with uppercase charct and including special cahrct</p>
+
+        </div>
+        <label for="repasswordInput">rePassword :</label>
+        <div class=" input-group mb-2">
+
+            <input formControlName="rePassword" type="password" [type]=" isHidden ? 'text': 'password'" class="form-control" id="repasswordInput">
+            <span class="input-group-text cursor">
+                    
+                <i (click)="showPassword()" [ngClass]="{
+                    'fa-regular fa-eye': isHidden,
+                    'fa-solid fa-eye-slash': !isHidden
+                  }"></i></span>
+
+        </div>
+        <div *ngIf="registerForm.get('rePassword')?.hasError('mustMatch')" class=" alert alert-danger">Must enter the same password</div>
+
+        <div class="mb-2">
+            <label for="phoneInput">Phone :</label>
+            <input formControlName="phone" type="tel" class="form-control" id="phoneInput">
+            <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+                <p *ngIf="registerForm.get('phone')?.getError('required')" class="alert alert-danger p-2 mt-2"> Phone required</p>
+                <p *ngIf="registerForm.get('phone')?.getError('pattern')" class="alert alert-danger p-2 mt-2">Enter a valid phone</p>
+
+            </div>
+        </div>
+
+        <button [disabled]="!registerForm.valid" class="btn cursor mt-4" type="submit">
+            <i *ngIf="isLooding" class="fas fa-spinner fa-spin"></i>
+            <span *ngIf="!isLooding">Register</span>
+        </button>
+    </form>
+</div>

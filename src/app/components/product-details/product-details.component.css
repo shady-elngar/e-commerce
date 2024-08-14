@@ -1,0 +1,21 @@
+.productDetails button {
+    border-color: var(--main-color);
+    color: darkgreen;
+}
+
+.productDetails:hover button {
+    color: white;
+    background-color: var(--main-color);
+}
+
+.productImages {
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.productImages:hover {
+    box-shadow: -15px 9px 5px 0px rgba(132, 143, 186, 1);
+    border: none;
+}

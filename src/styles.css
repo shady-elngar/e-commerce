@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+:root {
+    --main-color: #2842ab;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+    font-weight: 400;
+}
+
+.text-main {
+    color: var(--main-color);
+}
+
+.cursor {
+    cursor: pointer;
+}

@@ -1,0 +1,65 @@
+<app-slider></app-slider>
+
+<h2 class="text-center text-main py-5 head-line">
+
+    Shop Smart, Shop Easy</h2>
+
+<div class="container">
+    <div class="row ">
+        <div *ngFor="let product of productes" class="col-md-3">
+            <div class="product  p-3 mb-2 px-2">
+                <a [routerLink]="['/productdetails',product._id]">
+                    <img class="w-100" [src]="product.imageCover">
+                    <h6 class="text-main">{{product.category.name}}</h6>
+                    <h2 class="h4 text-secondary">{{product.title.split(" ").slice(0,2).join(" ")}}</h2>
+                    <div class="d-flex justify-content-between">
+                        <div class="text-secondary">
+                            {{product.price}} <span class="text-main">L.E</span>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-star text-main"></i> {{product.ratingsAverage}}
+                        </div>
+                    </div>
+                </a>
+                <button (click)="addToCart(product._id)" type="button" class="btn w-100  mt-2">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-12">
+            <img class="w-100" src="../../../assets/app.jpg" alt="">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2 class="text-main text-center">New Categories</h2>
+    <div class="row">
+        <div *ngFor="let categ of subCategories" class="col-md-2 cursor">
+            <div class="categ">
+                <img class="w-100" [src]="categ.image" alt="">
+                <h2 class="h6 text-main">{{categ.name}}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="w-100" src="../../../assets/2-Banner-Eng.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+            <img class="w-100" src="../../../assets/3-Banner-ENG.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<app-brands></app-brands>
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-12">
+            <img class="w-100" src="../../../assets/5-Banner-Eng.jpg" alt="">
+        </div>
+    </div>
+</div>

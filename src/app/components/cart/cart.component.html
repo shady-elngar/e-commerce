@@ -1,0 +1,50 @@
+<div class="container">
+    <h2 class="text-main text-center m-3">My Cart</h2>
+    <div *ngFor="let product of myProduct" class="row mb-2 border-bottom">
+        <div class="col-md-2">
+            <div class="product-img">
+                <img class="w-100" [src]="product.product.imageCover" />
+            </div>
+        </div>
+        <div class="col-md-8 d-flex justify-content-between align-items-center">
+            <div>
+                <h5>{{ product.product.title }}</h5>
+                <p>
+                    Price per unit : <span class="text-main">{{ product.price }}</span>
+                </p>
+                <p>
+                    Total price :
+                    <span class="text-main">{{ product.price * product.count }}</span>
+                </p>
+                <p>
+                    {{ product.product.ratingsAverage }}
+                    <i class="fa-regular fa-star text-main"></i>
+                </p>
+                <button (click)="removeItem(product.product._id)" class="btn btn-info mb-3">
+          <i class="fa-regular fa-trash-can text-main"></i>Remove
+        </button>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-between align-items-center">
+            <div class="quantity">
+                <button (click)="updateQuant(product.product._id, product.count + 1)" class="btn btn-sm">
+          +
+        </button>
+                <span class="mx-2 align-content-end">{{ product.count }}</span>
+                <button (click)="updateQuant(product.product._id, product.count - 1)" class="btn btn-sm">
+          -
+        </button>
+            </div>
+        </div>
+    </div>
+    <div class="bg-secondary p-4 mb-5">
+        <p class="fs-5 fw-bolder">
+            Total cart price : <span class="text-main fs-4">{{ allRes?.data.totalCartPrice }} L.E</span>
+        </p>
+        <button class="btn btn-info">
+      <a class="text-decoration-none text-white" routerLink="/checkout"
+        >online payment <i class="fa-brands fa-cc-visa"></i
+      ></a>
+    </button>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.navbar-nav button {
+    border-color: var(--main-color) !important;
+    transition: all 0.5s;
+}
+
+.navbar-nav button a {
+    color: var(--main-color) !important;
+    transition: all 0.5s;
+}
+
+.navbar-nav button:hover {
+    background-color: var(--main-color) !important;
+}
+
+.navbar-nav button:hover a {
+    color: white !important;
+}
+
+li a {
+    color: var(--main-color);
+}

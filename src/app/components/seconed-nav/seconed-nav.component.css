@@ -1,0 +1,23 @@
+.navbar {
+    background-color: var(--main-color) !important;
+}
+
+.nav-item a {
+    font-size: 20px;
+    position: relative;
+}
+
+.nav-item span {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    background-color: red;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    font-size: 12px;
+}

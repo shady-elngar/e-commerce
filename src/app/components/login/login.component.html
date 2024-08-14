@@ -1,0 +1,39 @@
+<h2 class="text-center text-main mt-3"> Login Now</h2>
+<div class="w-75 mx-auto">
+    <form class="py-3" [formGroup]="loginForm" (ngSubmit)="handelLogin(loginForm)">
+        <div *ngIf="errMsg.length>0" class="alert alert-danger">{{errMsg}}</div>
+
+        <div class="mb-2">
+            <label for="emailInput">Email :</label>
+            <input formControlName="email" type="email" class="form-control" id="emailInput">
+            <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+                <p *ngIf="loginForm.get('email')?.getError('required')" class="alert alert-danger p-2 mt-2"> email required</p>
+                <p *ngIf="loginForm.get('email')?.getError('email')" class="alert alert-danger p-2 mt-2">Valid email</p>
+
+            </div>
+        </div>
+        <label for="passwordInput">Password :</label>
+        <div class=" input-group mb-2">
+
+            <input formControlName="password" [type]=" isHidden ? 'text': 'password'" class="form-control" id="passwordInput">
+
+            <span class="input-group-text cursor">
+                    
+                <i (click)="showPassword()" [ngClass]="{
+                    'fa-regular fa-eye': isHidden,
+                    'fa-solid fa-eye-slash': !isHidden
+                  }"></i></span>
+
+        </div>
+        <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+            <p *ngIf="loginForm.get('password')?.getError('required')" class="alert alert-danger p-2 mt-2"> password required</p>
+            <p *ngIf="loginForm.get('password')?.getError('pattern')" class="alert alert-danger p-2 mt-2">Must start with uppercase charct and including special cahrct</p>
+
+        </div>
+
+        <button [disabled]="!loginForm.valid" class="btn cursor mt-4" type="submit">
+            <i *ngIf="isLooding" class="fas fa-spinner fa-spin"></i>
+            <span *ngIf="!isLooding">Login</span>
+        </button>
+    </form>
+</div>

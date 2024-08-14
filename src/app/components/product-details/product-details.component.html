@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row py-3">
+        <div class="col-md-5">
+            <div class="productImages p-1 ">
+                <img class="w-100" [src]="allDetails?.imageCover" alt="">
+            </div>
+
+        </div>
+        <div class="col-md-7  align-content-center ">
+            <div class="productDetails">
+                <h5 class="lead text-main">{{allDetails?.slug}}</h5>
+                <h2 class="h4">{{allDetails?.title}}</h2>
+                <p class="lead">{{allDetails?.category.name}}</p>
+                <p class="text-main">{{allDetails?.description}}</p>
+                <div class="d-flex justify-content-between align-items-center ">
+                    <h4>Brand name :<span class="text-main">{{allDetails?.brand.name}}</span></h4>
+                    <img w-100 [src]="allDetails?.brand.image">
+                </div>
+                <div class="d-flex justify-content-between align-items-center ">
+                    <h6>Price : <span class="text-main">{{allDetails?.price}}</span></h6>
+                    <div>
+                        <i class="fa-regular fa-star text-main"></i> {{allDetails?.ratingsAverage}}
+                    </div>
+                </div>
+                <button class="w-100 btn mt-3">Add to cart</button>
+
+            </div>
+        </div>
+    </div>
+</div>

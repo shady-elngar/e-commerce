@@ -1,0 +1,19 @@
+<div class="w-50 mx-auto mt-5">
+    <h2 class="text-main text-center  fw-bolder">Please full your info ....</h2>
+    <form [formGroup]="shippingAddress" (ngSubmit)="handelCheck(shippingAddress)">
+        <div class="mb-2">
+            <label for="details">details</label>
+            <input type="text" id="details" formControlName="details" class="form-control">
+        </div>
+
+        <div class="mb-2">
+            <label for="phone">phone</label>
+            <input type="tel" id="phone" formControlName="phone" class="form-control">
+        </div>
+        <div class="mb-2">
+            <label for="city">city</label>
+            <input type="text" id="city" formControlName="city" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-info">pay</button>
+    </form>
+</div>
